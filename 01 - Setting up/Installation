@@ -1,0 +1,12 @@
+
+https://www.rust-lang.org/tools/install
+
+Add the rustc command with the usual stuff like --version.
+Installed rustc 1.91.1
+And a nice 'rustup doc' command to get some local docs
+
+rustc compiles the .rs file into an exe file, and it includes a pdb file by default
+
+Standard stuff like a main function, functions start with fn, styling adds a space before the open curly bracket and it's on the same line as the function declaration.
+
+println! is actually a macro, indicated by the !.
