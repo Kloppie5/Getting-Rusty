@@ -10,3 +10,8 @@ rustc compiles the .rs file into an exe file, and it includes a pdb file by defa
 Standard stuff like a main function, functions start with fn, styling adds a space before the open curly bracket and it's on the same line as the function declaration.
 
 println! is actually a macro, indicated by the !.
+
+Rust's build system and package manager is called Cargo. Packages of code are referred to as crates.
+Starting a new project with 'cargo new <project name>' creates a new folder with a .tml file.
+The project can then be build or build and ran with 'cargo build' or 'cargo run'.
+'cargo check' can be used to see if it would compile, without actually compiling it.
