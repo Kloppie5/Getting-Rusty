@@ -1,0 +1,37 @@
+
+Variables are immutable by default, so 'let a = 1;' would be immutable. 'let mut b = 2;' would create a mutable variable.
+
+Standard io stuff can be included from the standard library with 'use std::io;' to introduce shorthand. Using 'std::io::stdin()' would also work.
+
+On 'stdin()', we can call '.read_line(&mut variable)'. & indicates the argument is by reference, and mut is needed because references are immutable by default.
+
+This read function returns a Result. It is a union type of Ok(T) and Err(E). Running the code without doing anything with this is possible, but the compiler gives a warning that the Result may be an Err variant.
+This can be handled with '.expect("Some message")', which returns the Ok value or raises a panic with the provided message. I feel like panics should be treated as a more severe version of an Exception. It might be possible to 'catch' it in some way, but this should probably not be done in general.
+
+It is possible to 'fstring' with curly braces, both the inline and the argument approach. I feel like for pattern matching, globalization, and legibility, it would be preferable to use the arguments approach.
+
+There work normally:
+    'println!("Input: {}", input);'
+    'println!("Input: {input}");'
+
+But
+    'println!("Input: {}", &input);'
+works fine while
+    'println!("Input: {&input}");'
+doesn't compile.
+
+Rust has variable shadowing, so you can just reuse existing variable names. I guess its fine for several steps manipulating a core variable, but outside of that case it would just hurt readability.
+Parsing the input as a number and printing it shows me that the initially read string keeps the newline, so that's something to take into account.
+
+Rust has full static type inference, so type annotations might be required at times, though I'll probably add them most of the time. I guess it's a bit of a var situation where I'd omit them in obvious situations.
+
+Instead of expect, it's possible to directly switch on the types;
+
+```
+.parse() {
+    Ok(v) => v,
+    Err(_) => panic!("FIRE!"),
+};
+```
+
+
