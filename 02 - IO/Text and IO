@@ -34,4 +34,6 @@ Instead of expect, it's possible to directly switch on the types;
 };
 ```
 
+When trying to print some complicated object, PathBuf in this case, the compiler complains that it can't be formatted with the default formatter, mentioning the fmt::Display function.
 
+When reading raw data, it gives a Vec<u8>. Printing it hex with a format of "{:X}" doesn't quite work; "{:X?}" would work since it prints in "Debug format", though what that entails is not quite clear to me yet.
